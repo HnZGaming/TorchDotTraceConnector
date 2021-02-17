@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorchDotTraceConnector", "TorchDotTraceConnector\TorchDotTraceConnector.csproj", "{BB960977-35A7-4376-B72B-6337BB88E1FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB960977-35A7-4376-B72B-6337BB88E1FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB960977-35A7-4376-B72B-6337BB88E1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB960977-35A7-4376-B72B-6337BB88E1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB960977-35A7-4376-B72B-6337BB88E1FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

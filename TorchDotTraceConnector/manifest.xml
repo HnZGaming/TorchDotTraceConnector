@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<PluginManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <Name>dotTrace Connector</Name>
+
+  <Guid>BB960977-35A7-4376-B72B-6337BB88E1FD</Guid>
+
+  <Repository>https://github.com/HnZGaming/TorchDotTraceConnector</Repository>
+
+  <Version>v1.0.0</Version>
+
+</PluginManifest>
