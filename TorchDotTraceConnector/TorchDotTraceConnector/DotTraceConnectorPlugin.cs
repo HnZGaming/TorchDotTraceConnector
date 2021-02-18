@@ -87,8 +87,8 @@ namespace TorchDotTraceConnector
                 try
                 {
                     Log.Info("Auto-tracing...");
-                    var outputPath = await _connector.StartTracing(cancellationToken);
-                    Log.Info($"Traced: \"{outputPath}\"");
+                    await _connector.StartTracing(cancellationToken);
+                    Log.Info("Auto-tracing done");
                 }
                 catch (OperationCanceledException)
                 {
@@ -97,6 +97,10 @@ namespace TorchDotTraceConnector
                 catch (Exception e)
                 {
                     Log.Error(e);
+                }
+                finally
+                {
+                    _simDropObserver.Reset();
                 }
 
                 await Task.Delay(1.Seconds(), cancellationToken);
@@ -109,9 +113,9 @@ namespace TorchDotTraceConnector
             _cancellationTokenSource?.Dispose();
         }
 
-        public Task<string> StartTracing(TimeSpan? interval, ProfilingType profilingType)
+        public async Task StartTracing(TimeSpan? interval, ProfilingType profilingType)
         {
-            return _connector.StartTracing(default, interval, profilingType);
+            await _connector.StartTracing(_cancellationTokenSource.Token, interval, profilingType);
         }
     }
 }

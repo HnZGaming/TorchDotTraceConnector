@@ -28,7 +28,7 @@ namespace TorchDotTraceConnector
             this.ShowCommands();
         });
 
-        [Command("trace", "Run dotTrace. --interval=30 --profiling-type=sampling")]
+        [Command("trace", "Run dotTrace. --interval=30 --profiling-type=sampling|tracing")]
         [Permission(MyPromoteLevel.Admin)]
         public void Trace() => this.CatchAndReport(async () =>
         {
@@ -52,6 +52,8 @@ namespace TorchDotTraceConnector
                         "tracing" => ProfilingType.Tracing,
                         _ => throw new ArgumentException($"invalid profiling type: {profilingTypeStr}")
                     };
+
+                    continue;
                 }
 
                 Context.Respond($"Invalid argument: {arg}", Color.Red);
@@ -60,9 +62,9 @@ namespace TorchDotTraceConnector
 
             Context.Respond("Started tracing...");
 
-            var outputPath = await Plugin.StartTracing(interval, profilingType);
+            await Plugin.StartTracing(interval, profilingType);
 
-            Context.Respond($"Finished tracing: \"{outputPath}\"");
+            Context.Respond("Finished tracing");
         });
     }
 }

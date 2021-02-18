@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Sandbox.Game.Multiplayer;
@@ -20,16 +22,29 @@ namespace Utils.Torch
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                var sim = Sync.ServerSimulationRatio;
-                _recentSims[_intervalCount++ % _recentSims.Length] = sim;
+                UpdateBuffer();
 
                 await Task.Delay(1.Seconds(), cancellationToken);
             }
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        void UpdateBuffer()
+        {
+            var sim = Sync.ServerSimulationRatio;
+            _recentSims[_intervalCount++ % _recentSims.Length] = sim;
+        }
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public bool IsLaggierThan(double sim)
         {
             return _recentSims.Average() < sim;
+        }
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void Reset()
+        {
+            _recentSims.Fill(1);
         }
     }
 }
