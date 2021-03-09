@@ -177,40 +177,6 @@
         <Compile Include="TorchDotTraceConnector\DotTraceConnectorCommandModule.cs" />
         <Compile Include="TorchDotTraceConnector\DotTraceConnectorConfig.cs" />
         <Compile Include="TorchDotTraceConnector\DotTraceConnectorPlugin.cs" />
-        <Compile Include="Utils.General\AbsJsonConverter.cs" />
-        <Compile Include="Utils.General\ActionDisposable.cs" />
-        <Compile Include="Utils.General\ActionQueue.cs" />
-        <Compile Include="Utils.General\CollectionUtils.cs" />
-        <Compile Include="Utils.General\CsvDb.cs" />
-        <Compile Include="Utils.General\DebugUtils.cs" />
-        <Compile Include="Utils.General\DisposableCollection.cs" />
-        <Compile Include="Utils.General\DisposableUtils.cs" />
-        <Compile Include="Utils.General\ExpirationObserver.cs" />
-        <Compile Include="Utils.General\HttpUrlBuilder.cs" />
-        <Compile Include="Utils.General\LangUtils.cs" />
-        <Compile Include="Utils.General\LoggerUtils.cs" />
-        <Compile Include="Utils.General\MathUtils.cs" />
-        <Compile Include="Utils.General\ObjectPool.cs" />
-        <Compile Include="Utils.General\ProcessUtils.cs" />
-        <Compile Include="Utils.General\ReflectionUtils.cs" />
-        <Compile Include="Utils.General\StringFloatConverter.cs" />
-        <Compile Include="Utils.General\StupidDb.cs" />
-        <Compile Include="Utils.General\TaskUtils.cs" />
-        <Compile Include="Utils.General\ThreadSafeThrottle.cs" />
-        <Compile Include="Utils.Torch\CommandModuleUtils.cs" />
-        <Compile Include="Utils.Torch\CommandOption.cs" />
-        <Compile Include="Utils.Torch\ConfigPropertyAttribute.cs" />
-        <Compile Include="Utils.Torch\ConfigPropertyIgnoreAttribute.cs" />
-        <Compile Include="Utils.Torch\ConfigPropertyType.cs" />
-        <Compile Include="Utils.Torch\FileLoggingConfigurator.cs" />
-        <Compile Include="Utils.Torch\GameLoopObserver.cs" />
-        <Compile Include="Utils.Torch\GameLoopObserverManager.cs" />
-        <Compile Include="Utils.Torch\ReportGenerator.cs" />
-        <Compile Include="Utils.Torch\SimDropObserver.cs" />
-        <Compile Include="Utils.Torch\TorchPluginUtils.cs" />
-        <Compile Include="Utils.Torch\TorchUtils.cs" />
-        <Compile Include="Utils.Torch\VRageUtils.cs" />
-        <Compile Include="Utils.Torch\XmlUtils.cs" />
     </ItemGroup>
     <ItemGroup>
       <Content Include="manifest.xml" />
@@ -225,4 +191,6 @@
             [ -z "$NoDeploy" ] || $(ProjectDir)postbuild.bat $(ProjectName) $(SolutionDir)
         </PostBuildEvent>
     </PropertyGroup>
+    <Import Project="..\TorchUtils\Utils.General\Utils.General.projitems" Label="Shared" />
+    <Import Project="..\TorchUtils\Utils.Torch\Utils.Torch.projitems" Label="Shared" />
 </Project>
