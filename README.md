@@ -1,19 +1,21 @@
 # TorchDotTraceConnector
 
-Runs dotTrace when the server is laggy and on demand.
+Runs dotTrace when the server is laggy and/or on demand.
 
-Find dotTrace here (and how it generally works):<br>
+Read how dotTrace works:<br>
 https://www.jetbrains.com/help/profiler/Performance_Profiling__Profiling_Using_the_Command_Line.html
 
-__**NOTE you need a payware to view the output files.**__
+__**NOTE Viewing the output file requires a payware.**__
 
-## General Functionarity
+## Functionarity
 
-* Run dotTrace on demand via command
-* Run dotTrace when the game server is experiencing a lag
-* Configurable timeout, profiling type, simspeed threshold, output paths, etc.
+* Manually run dotTrace via command
+* Automatically run dotTrace when the server sim is low
+
+You don't need to download dotTrace. The plugin has the core library bundled.
 
 ## Commands
 
+* `!dottrace trace` -- Runs dotTrace
 * `!dottrace commands` -- Shows available commands
 * `!dottrace configs` -- Shows available config properties
