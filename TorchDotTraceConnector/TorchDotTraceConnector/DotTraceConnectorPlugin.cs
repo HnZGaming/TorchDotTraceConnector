@@ -35,8 +35,6 @@ namespace TorchDotTraceConnector
             this.ListenOnGameLoaded(OnGameLoaded);
             this.ListenOnGameUnloading(OnGameUnloading);
 
-            GameLoopObserverManager.Add(torch);
-
             _cancellationTokenSource = new CancellationTokenSource();
 
             var configPath = this.MakeConfigFilePath();
